@@ -1,0 +1,10 @@
+import fs from 'node:fs';
+fs.mkdirSync('public-deploy',{recursive:true});
+let html=fs.readFileSync('Northwest-Tennis-Preview.html','utf8');
+html=html.replace('<html lang="en">','<html lang="en" data-public="true">');
+html=html.replace('<button id="edit-open">Preview editor ↗</button>','');
+html=html.replace('DESIGN PREVIEW','NORTHWEST TENNIS').replace('Team preview · Spring 2027','Spring 2027').replace('PROPOSED TEAM WEBSITE · NOT AN OFFICIAL SCHOOL PUBLICATION','INDEPENDENT TEAM WEBSITE · NOT AN OFFICIAL SCHOOL PUBLICATION');
+html=html.replace(/<dialog id="editor">[\s\S]*?<\/dialog>/,'');
+fs.writeFileSync('public-deploy/index.html',html);
+fs.writeFileSync('public-deploy/.nojekyll','');
+console.log('Public deployment ready: public-deploy/index.html');

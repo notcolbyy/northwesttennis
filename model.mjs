@@ -1,0 +1,4 @@
+export function nextMatch(matches,team,now=new Date()){const today=new Intl.DateTimeFormat('en-CA',{timeZone:'America/Chicago',year:'numeric',month:'2-digit',day:'2-digit'}).format(now);return matches.filter(m=>m.team===team&&m.status==='scheduled'&&Number.isFinite(Date.parse(m.date))&&(m.timeTBD?m.date.slice(0,10)>=today:new Date(m.date)>=now)).sort((a,b)=>new Date(a.date)-new Date(b.date))[0]??null;}
+export function validLink(value){if(!value)return true;try{return new URL(value).protocol==='https:';}catch{return false;}}
+export function validateUpdate(value){if(!value.opponent?.trim())return 'Add an opponent.';if(!Number.isFinite(Date.parse(value.date)))return 'Choose a valid match date and time.';if(!validLink(value.donation))return 'Donation links must start with https://.';return null;}
+export function escapeHTML(value){return String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
