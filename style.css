@@ -22,3 +22,8 @@
 
 .hero .eyebrow{text-shadow:0 2px 8px #092b20,0 1px 2px #092b20}
 .player-info>span{color:#52624e}
+
+/* Keep the replacement portrait's full figure visible in the hero. */
+.hero-photo{background:#092b20!important}
+.hero-photo img{object-fit:contain;object-position:right center}
+@media(max-width:700px){.hero-photo img{object-position:center top}}
