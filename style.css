@@ -26,3 +26,30 @@
 .hero-photo{background:#092b20!important}
 .hero-photo img{object-fit:cover;object-position:55% 45%}
 @media(max-width:700px){.hero-photo img{object-position:52% 30%}}
+
+/* Full-width sections and clear coach/donation details. */
+body{max-width:none}
+.support{margin-left:0;margin-right:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center}
+.support>div:not(.support-art){min-width:0}
+.donation-steps{list-style:none;margin:0;padding:0;display:grid;gap:16px;position:relative}
+.donation-steps li{display:flex;align-items:flex-start;gap:16px}
+.donation-steps li>span{font:700 20px var(--heading);color:var(--gold);min-width:20px}
+.donation-steps p{font-size:14px;line-height:1.6;margin:0;color:#f5f3eb}
+.pending{display:block;border:0;padding:0;font-size:14px;letter-spacing:0;color:#c8d3c3}
+.coach-line{display:block}
+.coach-line h3{font-size:30px;margin-bottom:20px}
+.coach-entries{display:flex;gap:50px;flex-wrap:wrap;margin-bottom:20px}
+.coach-entry{display:grid;gap:6px;min-width:210px}
+.coach-entry strong{font-size:18px;font-weight:700}
+.coach-entry span{font-size:14px;color:var(--muted)}
+@media(max-width:700px){.support{display:block;margin:0 0 50px}.donation-steps{margin-top:28px}.coach-entries{display:grid;gap:20px}}
+
+/* Center section content within the full-width backgrounds. */
+header{padding-inline:max(4.5%,calc((100% - 1400px)/2))}
+.hero-content,.match-strip,.section,footer{padding-inline:max(8%,calc((100% - 1400px)/2))}
+.hero-bottom{left:max(8%,calc((100% - 1400px)/2));right:max(8%,calc((100% - 1400px)/2))}
+.photo-credit{right:max(6%,calc((100% - 1400px)/2))}
+.support{padding-inline:max(4%,calc((100% - 1400px)/2))}
+.support>.pending{grid-column:1/-1}
+@media(max-width:700px){.hero-content,.match-strip,.section,footer{padding-inline:7%}.hero-bottom{left:7%;right:7%}.photo-credit{right:7%}.support{padding-inline:7%}}
+@media(max-width:700px){.support>.pending{margin-top:24px}}
