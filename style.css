@@ -53,3 +53,30 @@ header{padding-inline:max(4.5%,calc((100% - 1400px)/2))}
 .support>.pending{grid-column:1/-1}
 @media(max-width:700px){.hero-content,.match-strip,.section,footer{padding-inline:7%}.hero-bottom{left:7%;right:7%}.photo-credit{right:7%}.support{padding-inline:7%}}
 @media(max-width:700px){.support>.pending{margin-top:24px}}
+
+/* Tentative match details and calendar actions. */
+.match-row{grid-template-columns:75px minmax(150px,1fr) minmax(230px,1.6fr) auto;gap:14px}
+.match-location,.next-details{font-size:14px;line-height:1.45}
+.match-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:14px}
+.match-actions>a,.calendar-disclosure>summary,.calendar-options a,.season-downloads a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+.match-actions>a,.calendar-disclosure>summary{display:inline-flex;align-items:center;min-height:44px;padding:6px 7px;white-space:nowrap}
+.calendar-disclosure{position:relative}
+.calendar-disclosure>summary{cursor:pointer}
+.calendar-disclosure>summary:focus-visible{outline:3px solid #bd8500;outline-offset:3px}
+.calendar-options{position:absolute;z-index:4;right:0;top:100%;min-width:180px;padding:8px;background:var(--cream);color:var(--ink);box-shadow:0 8px 24px #0003}
+.calendar-options a{display:flex;align-items:center;min-height:44px;padding:6px 9px}
+.calendar-disclosure:focus-within{z-index:5}
+.next-info{min-width:0}.next-info .match-actions{margin-top:5px}
+.next-info .calendar-options{left:0;right:auto}
+.season-downloads{margin-top:14px;font-size:14px}.season-downloads a{display:inline-flex;align-items:center;min-width:44px;min-height:44px;padding:4px}
+.schedule-head{font-size:14px;letter-spacing:0;gap:18px;align-items:center;flex-wrap:wrap}
+.schedule-head>span:nth-child(2){max-width:390px}
+.schedule-head .season-downloads{margin:0;white-space:nowrap}
+@media(max-width:1000px){.match-row{grid-template-columns:62px minmax(0,1fr) auto;gap:6px 10px}.match-date{grid-row:1/3}.match-opponent{grid-column:2}.match-location{grid-column:2/4;grid-row:2}.match-actions{grid-column:3;grid-row:1}.match-actions>a,.calendar-disclosure>summary{padding-inline:3px}}
+@media(max-width:700px){.match-row{grid-template-columns:55px minmax(0,1fr);padding:15px 0}.match-date{grid-row:1/3}.match-opponent{grid-column:2;font-size:22px}.match-location{grid-column:2;grid-row:2;font-size:14px}.match-actions{grid-column:2;grid-row:3;gap:8px}.match-actions>a,.calendar-disclosure>summary{padding:6px 8px}.schedule-head{font-size:14px}.schedule-head>span:nth-child(2){max-width:220px}.schedule-head .season-downloads{width:100%}.next-info .calendar-options{left:0}}
+@media(max-width:700px){.match-row .calendar-disclosure[open]{width:100%}.match-row .calendar-options{position:static;box-shadow:none;background:#e6e8dc}.match-row .calendar-options a{padding-left:12px}}
+.match-row.has-result .status{grid-column:2;grid-row:2;text-align:left;font-size:14px}
+.match-row.has-result .pill{font-size:14px}
+.match-row.has-result .match-location{grid-row:3}
+@media(max-width:1000px){.match-row.has-result .match-actions{grid-row:4;grid-column:2/4}}
+@media(max-width:700px){.match-row.has-result .match-location{grid-column:2;grid-row:3}.match-row.has-result .match-actions{grid-column:2;grid-row:4}}
