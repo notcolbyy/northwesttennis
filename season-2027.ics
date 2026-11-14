@@ -1,0 +1,135 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Northwest Tennis//Schedule 2027//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VTIMEZONE
+TZID:America/Chicago
+BEGIN:DAYLIGHT
+DTSTART:19700308T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU
+TZOFFSETFROM:-0600
+TZOFFSETTO:-0500
+TZNAME:CDT
+END:DAYLIGHT
+BEGIN:STANDARD
+DTSTART:19701101T020000
+RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU
+TZOFFSETFROM:-0500
+TZOFFSETTO:-0600
+TZNAME:CST
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:boys-2027-03-09-henry-county@notcolbyy.github.io
+DTSTAMP:20261114T025443Z
+LAST-MODIFIED:20261114T025443Z
+SEQUENCE:0
+DTSTART;TZID=America/Chicago:20270309T160000
+DTEND;TZID=America/Chicago:20270309T180000
+SUMMARY:Northwest Tennis at Henry County (tentative)
+LOCATION:near Henry County High School\, 315 South Wilson Street\, Paris\,
+  TN 38242
+DESCRIPTION:Time and location tentative until confirmed. Latest schedule: h
+ ttps://notcolbyy.github.io/northwesttennis/#schedule
+STATUS:TENTATIVE
+END:VEVENT
+BEGIN:VEVENT
+UID:boys-2027-03-23-west-creek@notcolbyy.github.io
+DTSTAMP:20261114T025443Z
+LAST-MODIFIED:20261114T025443Z
+SEQUENCE:0
+DTSTART;TZID=America/Chicago:20270323T160000
+DTEND;TZID=America/Chicago:20270323T180000
+SUMMARY:Northwest Tennis vs. West Creek (tentative)
+LOCATION:Northwest High School tennis courts\, 800 Lafayette Road\, Clarksv
+ ille\, TN 37042
+DESCRIPTION:Time and location tentative until confirmed. Latest schedule: h
+ ttps://notcolbyy.github.io/northwesttennis/#schedule
+STATUS:TENTATIVE
+END:VEVENT
+BEGIN:VEVENT
+UID:boys-2027-03-25-kenwood@notcolbyy.github.io
+DTSTAMP:20261114T025443Z
+LAST-MODIFIED:20261114T025443Z
+SEQUENCE:0
+DTSTART;TZID=America/Chicago:20270325T160000
+DTEND;TZID=America/Chicago:20270325T180000
+SUMMARY:Northwest Tennis vs. Kenwood (tentative)
+LOCATION:Northwest High School tennis courts\, 800 Lafayette Road\, Clarksv
+ ille\, TN 37042
+DESCRIPTION:Time and location tentative until confirmed. Latest schedule: h
+ ttps://notcolbyy.github.io/northwesttennis/#schedule
+STATUS:TENTATIVE
+END:VEVENT
+BEGIN:VEVENT
+UID:boys-2027-03-30-west-creek@notcolbyy.github.io
+DTSTAMP:20261114T025443Z
+LAST-MODIFIED:20261114T025443Z
+SEQUENCE:0
+DTSTART;TZID=America/Chicago:20270330T160000
+DTEND;TZID=America/Chicago:20270330T180000
+SUMMARY:Northwest Tennis at West Creek (tentative)
+LOCATION:West Creek High School\, 1210 West Creek Coyote Trail\, Clarksvill
+ e\, TN 37042
+DESCRIPTION:Time and location tentative until confirmed. Latest schedule: h
+ ttps://notcolbyy.github.io/northwesttennis/#schedule
+STATUS:TENTATIVE
+END:VEVENT
+BEGIN:VEVENT
+UID:boys-2027-04-01-kenwood@notcolbyy.github.io
+DTSTAMP:20261114T025443Z
+LAST-MODIFIED:20261114T025443Z
+SEQUENCE:0
+DTSTART;TZID=America/Chicago:20270401T160000
+DTEND;TZID=America/Chicago:20270401T180000
+SUMMARY:Northwest Tennis at Kenwood (tentative)
+LOCATION:Kenwood High School\, 251 East Pine Mountain Road\, Clarksville\,
+  TN 37042
+DESCRIPTION:Time and location tentative until confirmed. Latest schedule: h
+ ttps://notcolbyy.github.io/northwesttennis/#schedule
+STATUS:TENTATIVE
+END:VEVENT
+BEGIN:VEVENT
+UID:boys-2027-04-06-dickson-county@notcolbyy.github.io
+DTSTAMP:20261114T025443Z
+LAST-MODIFIED:20261114T025443Z
+SEQUENCE:0
+DTSTART;TZID=America/Chicago:20270406T160000
+DTEND;TZID=America/Chicago:20270406T180000
+SUMMARY:Northwest Tennis vs. Dickson County (tentative)
+LOCATION:Northwest High School tennis courts\, 800 Lafayette Road\, Clarksv
+ ille\, TN 37042
+DESCRIPTION:Time and location tentative until confirmed. Latest schedule: h
+ ttps://notcolbyy.github.io/northwesttennis/#schedule
+STATUS:TENTATIVE
+END:VEVENT
+BEGIN:VEVENT
+UID:boys-2027-04-08-dickson-county@notcolbyy.github.io
+DTSTAMP:20261114T025443Z
+LAST-MODIFIED:20261114T025443Z
+SEQUENCE:0
+DTSTART;TZID=America/Chicago:20270408T160000
+DTEND;TZID=America/Chicago:20270408T180000
+SUMMARY:Northwest Tennis at Dickson County (tentative)
+LOCATION:Dickson County High School\, 509 Henslee Drive\, Dickson\, TN 3705
+ 5
+DESCRIPTION:Time and location tentative until confirmed. Latest schedule: h
+ ttps://notcolbyy.github.io/northwesttennis/#schedule
+STATUS:TENTATIVE
+END:VEVENT
+BEGIN:VEVENT
+UID:boys-2027-04-13-henry-county@notcolbyy.github.io
+DTSTAMP:20261114T025443Z
+LAST-MODIFIED:20261114T025443Z
+SEQUENCE:0
+DTSTART;TZID=America/Chicago:20270413T160000
+DTEND;TZID=America/Chicago:20270413T180000
+SUMMARY:Northwest Tennis vs. Henry County (tentative)
+LOCATION:Northwest High School tennis courts\, 800 Lafayette Road\, Clarksv
+ ille\, TN 37042
+DESCRIPTION:Time and location tentative until confirmed. Latest schedule: h
+ ttps://notcolbyy.github.io/northwesttennis/#schedule
+STATUS:TENTATIVE
+END:VEVENT
+END:VCALENDAR

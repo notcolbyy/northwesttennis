@@ -7,8 +7,14 @@ const schools={
 };
 const fixtures=[['03-09','Henry County','Away'],['03-23','West Creek','Home'],['03-25','Kenwood','Home'],['03-30','West Creek','Away'],['04-01','Kenwood','Away'],['04-06','Dickson County','Home'],['04-08','Dickson County','Away'],['04-13','Henry County','Home']];
 export const seasonMatches=['boys','girls'].flatMap(team=>fixtures.map(([day,opponent,venue])=>({team,opponent,venue,date:'2027-'+day,time:'16:00',timeZone:'America/Chicago',timeStatus:'tentative',locationStatus:'tentative',...(venue==='Home'?schools.Northwest:schools[opponent]),status:'scheduled'})));
+export function schedulesIdentical(matches){
+ const rows=team=>matches.filter(match=>match.team===team).map(({team:ignored,...match})=>JSON.stringify(match)).sort();
+ const boys=rows('boys'),girls=rows('girls');
+ return boys.length===girls.length&&boys.every((match,index)=>match===girls[index]);
+}
+export function allMatchesConfirmed(matches){return matches.length>0&&matches.every(match=>match.timeStatus==='confirmed'&&match.locationStatus==='confirmed');}
 export function validateFixture(match){
- if(!['boys','girls'].includes(match.team)||!['Home','Away'].includes(match.venue)||!/^2027-\d{2}-\d{2}$/.test(match.date)||!/^([01]\d|2[0-3]):[0-5]\d$/.test(match.time)||match.timeZone!=='America/Chicago'||!['tentative','confirmed'].includes(match.timeStatus)||!['tentative','confirmed'].includes(match.locationStatus)||!match.venueName?.trim()||!match.address?.trim())throw new Error('Invalid fixture fields');
+ if(!['boys','girls'].includes(match.team)||!['Home','Away'].includes(match.venue)||!/^2027-\d{2}-\d{2}$/.test(match.date)||!/^([01]\d|2[0-1]):[0-5]\d$/.test(match.time)||match.timeZone!=='America/Chicago'||!['tentative','confirmed'].includes(match.timeStatus)||!['tentative','confirmed'].includes(match.locationStatus)||!match.venueName?.trim()||!match.address?.trim()||(match.sequence!==undefined&&(!Number.isInteger(match.sequence)||match.sequence<0))||(match.lastModified!==undefined&&!Number.isFinite(Date.parse(match.lastModified))))throw new Error('Invalid fixture fields');
  return match;
 }
 seasonMatches.forEach(validateFixture);
