@@ -136,3 +136,4 @@ header{padding-inline:max(4.5%,calc((100% - 1400px)/2))}
 .match-card-meta .match-final-state{font-size:18px}
 @media(max-width:700px){.match-card-meta .match-final-state{font-size:16px}.match-card-meta{gap:7px}.match-card-title{min-width:0}}
 @media(prefers-reduced-motion:reduce){.match-panel,.match-expand-icon svg{transition:none}}
+.match-date-chip strong,.match-final-state,.score-number,.match-result-line span:nth-child(2){font-variant-numeric:tabular-nums}
