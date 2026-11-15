@@ -3,6 +3,7 @@ import { calendarPlatform, SEASON_FEED } from './calendar.mjs';
 import { players } from './players.mjs';
 import { nextMatch, sharedMatchLabel, matchDetails, tickerMarkup, escapeHTML as e } from './model.mjs';
 import {nextMarkup,rowMarkup} from './match-markup.mjs';
+import {initScrollEffects} from './scroll-effects.mjs';
 const KEY='northwest-tennis-2027-v2';
 const PUBLIC=true;
 const defaults={matches:seasonMatches};
@@ -28,6 +29,7 @@ function render(){
  document.querySelectorAll('[data-calendar-apple]').forEach(link=>link.hidden=appleOnly);
  document.querySelectorAll('.athlete-image').forEach(img=>img.addEventListener('error',()=>{img.hidden=true;},{once:true}));
  observe();
+ window.dispatchEvent(new Event('northwest:layout'));
 }
 let observer;
 function observe(){if(!observer)return;document.querySelectorAll('.reveal:not(.visible)').forEach(el=>observer.observe(el));}
@@ -43,3 +45,4 @@ document.addEventListener('click',event=>{for(const open of document.querySelect
 document.addEventListener('toggle',event=>{const card=event.target;if(!(card instanceof HTMLDetailsElement)||!card.classList.contains('match-card')||!card.open||matchMedia('(prefers-reduced-motion: reduce)').matches)return;for(const score of card.querySelectorAll('.score-number[data-score]')){const end=Number(score.dataset.score);if(!Number.isInteger(end))continue;score.textContent='0';const start=performance.now();function tick(now){if(!card.open)return;const fraction=Math.min(1,(now-start)/500);score.textContent=String(Math.round(end*(1-Math.pow(1-fraction,3))));if(fraction<1)requestAnimationFrame(tick)}requestAnimationFrame(tick)}},true);
 
 render();
+initScrollEffects();

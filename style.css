@@ -205,6 +205,25 @@ footer{gap:var(--space-6)}
 @media(max-width:380px){.footer-links>div{grid-template-columns:1fr}.footer-links a:first-child{grid-column:auto}.hero-actions{gap:var(--space-3)}}
 @media(prefers-reduced-motion:reduce){.footer-links a,.site-icon,.athlete-image,.js-motion .reveal,.button,.match-panel,.match-expand-icon svg{transition:none!important}}
 
+/* Footer destinations share one compact, accessible icon row. */
+.footer-links{display:flex;flex-wrap:nowrap;align-items:center;justify-content:center;gap:24px;text-align:center}
+.footer-links a{width:56px;height:56px;min-width:56px;min-height:56px;padding:6px;flex:0 0 56px;border:0;border-radius:12px;background:transparent;box-shadow:none}
+.footer-links a img{width:44px;height:44px}
+.footer-instagram-crop{display:block;position:relative;width:44px;height:44px;overflow:hidden;border-radius:10px;background:#000}
+.footer-links .footer-instagram-crop img{position:absolute;left:50%;top:50%;width:205px;height:113px;max-width:none;object-fit:fill;transform:translate(-50%,-50%)}
+.footer-links{display:grid;justify-items:center;gap:8px}
+.footer-links>span{font-size:12px}
+.footer-links .footer-mark-row{display:flex;flex-wrap:nowrap;align-items:center;justify-content:center;gap:24px;width:100%}
+.footer-links .footer-mark-row a:nth-child(2){width:88px;min-width:88px;flex-basis:88px}
+.footer-links .footer-mark-row a:nth-child(2) img{width:80px;height:42px}
+.footer-links .footer-mark-row a:hover>img,.footer-links .footer-mark-row a:focus-visible>img,.footer-links .footer-mark-row a:hover .footer-instagram-crop,.footer-links .footer-mark-row a:focus-visible .footer-instagram-crop{transform:scale(1.06)}
+.footer-links .footer-mark-row a img,.footer-links .footer-instagram-crop{transition:transform 180ms var(--ease-ui)}
+@media(hover:hover) and (pointer:fine){.footer-links a:hover{transform:none;box-shadow:none}}
+@media(max-width:700px){.footer-bottom{display:flex;flex-direction:column;align-items:flex-start;gap:4px}.footer-bottom span:last-child{text-align:left}}
+@media(prefers-reduced-motion:reduce){.footer-links .footer-mark-row a img,.footer-links .footer-instagram-crop{transition:none!important}}
+.footer-links a:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+@media(max-width:380px){.footer-links{gap:16px}}
+
 /* The small information labels remain readable on phones. */
 .preview-bar,.preview-bar button,.brand small,nav,.menu,.hero .eyebrow,.hero-description,.hero-bottom,.photo-credit,.photo-credit span,.match-label .eyebrow,.schedule-head,.schedule-shared-label,.section-note,.roster-intro>span,.player-info p,.coach-line a,.support .eyebrow,.pending,footer>p,footer>a:last-of-type,.footer-bottom,#ticker-pause{font-size:14px}
 .preview-bar{letter-spacing:.04em}.brand small{letter-spacing:.04em;line-height:1.3}.hero-bottom{letter-spacing:.05em}.photo-credit{letter-spacing:.05em}.footer-bottom{letter-spacing:.02em}
@@ -226,3 +245,71 @@ nav a:not(.nav-support):after{transition:transform 180ms var(--ease-ui)}
 .match-card[open] .match-panel{grid-template-rows:1fr}
 @media(hover:none){.button:hover{transform:none;box-shadow:none}.player-card:hover .athlete-image{transform:none}}
 .preview-detail,.eyebrow,.tabs button,.player-photo .pill{font-size:14px}
+@font-face{font-family:'Barlow Condensed';font-style:normal;font-weight:500;font-display:swap;src:url('assets/fonts/barlow-condensed-500.woff2') format('woff2')}
+@font-face{font-family:'Barlow Condensed';font-style:normal;font-weight:600;font-display:swap;src:url('assets/fonts/barlow-condensed-600.woff2') format('woff2')}
+@font-face{font-family:'Barlow Condensed';font-style:normal;font-weight:700;font-display:swap;src:url('assets/fonts/barlow-condensed-700.woff2') format('woff2')}
+@font-face{font-family:'Barlow Condensed';font-style:normal;font-weight:800;font-display:swap;src:url('assets/fonts/barlow-condensed-800.woff2') format('woff2')}
+@font-face{font-family:'Barlow Condensed';font-style:normal;font-weight:900;font-display:swap;src:url('assets/fonts/barlow-condensed-900.woff2') format('woff2')}
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url('assets/fonts/dm-sans-variable.woff2') format('woff2')}
+@font-face{font-family:'Barlow Condensed Fallback';src:local('Arial');size-adjust:67.3%}
+@font-face{font-family:'DM Sans Fallback';src:local('Arial');size-adjust:103.9%}
+:root{--heading:'Barlow Condensed','Barlow Condensed Fallback',sans-serif;--body:'DM Sans','DM Sans Fallback',sans-serif}
+/* Persistent scroll feedback; the scroll animation writes transform and opacity only. */
+header{position:sticky;top:0;z-index:50}
+header.is-compact{height:72px;padding-inline:3.5%;box-shadow:0 8px 24px #092a201f;background:var(--cream)}
+@supports(backdrop-filter:blur(10px)){header.is-compact{background:rgb(245 243 235 / .94);backdrop-filter:blur(10px)}}
+header:after{content:'';position:absolute;left:0;right:0;bottom:0;height:3px;background:var(--gold);transform:scaleX(var(--scroll-progress,0));transform-origin:left;pointer-events:none}
+nav a[aria-current="location"]:after{transform:scaleX(1)}
+nav .nav-support[aria-current="location"]{box-shadow:inset 0 -3px var(--gold)}
+section[id]{scroll-margin-top:104px}
+.hero-photo{transform:translate3d(0,var(--hero-parallax,0px),0)}
+.ticker.is-offscreen .ticker-track{animation-play-state:paused}
+#back-to-top{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:60;width:48px;height:48px;border:0;border-radius:50%;background:var(--dark);color:var(--cream);box-shadow:0 8px 24px #092a2033;display:grid;place-items:center;opacity:0;visibility:hidden;pointer-events:none;transform:translateY(8px);transition:transform 180ms ease-out,opacity 180ms ease-out,visibility 180ms}
+#back-to-top.is-visible{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0)}
+#back-to-top svg{width:20px;height:20px}
+#back-to-top:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+@media(max-width:700px){header.is-compact{height:72px}header.is-compact nav{top:72px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}header.is-compact{height:96px;padding-inline:4.5%;box-shadow:none;backdrop-filter:none}header:after{display:none}.hero-photo{transform:none!important}#back-to-top{transition:none}.ticker .ticker-track{animation-play-state:paused!important}}
+/* Keep the sticky header's box stable while its contents compact. */
+header.is-compact{height:96px}
+header.is-compact .brand,header.is-compact nav,header.is-compact .menu{transform:scale(.88);transform-origin:center}
+@media(max-width:700px){header.is-compact{height:96px}header.is-compact nav{top:96px}}
+@media(prefers-reduced-motion:reduce){header.is-compact .brand,header.is-compact nav,header.is-compact .menu{transform:none}}
+/* Footer marks use equal visual height and centered hit areas. */
+.footer-links .footer-mark-row{gap:12px}
+.footer-links .footer-mark-row a{width:76px;min-width:76px;flex-basis:76px;height:68px;min-height:68px;padding:0;display:flex;align-items:center;justify-content:center}
+.footer-links .footer-mark-row a:nth-child(2){width:120px;min-width:120px;flex-basis:120px}
+.footer-links .footer-mark-row a img{display:block;width:64px;height:50px;object-fit:contain}
+.footer-links .footer-mark-row a:nth-child(2) img{width:110px;height:58px}
+.footer-links .footer-mark-row a:nth-child(3) img{width:56px;height:56px}
+.next-opponent .gold-text{margin-left:6px;margin-right:2px}
+@media(max-width:700px){
+ header .brand-location{display:none}
+ header .brand small{white-space:nowrap;font-size:12px;letter-spacing:.02em}
+ .match-strip{padding-block:24px;gap:12px}
+ .match-label .eyebrow{display:none}
+ .match-label h2{margin-top:0}
+ .next-opponent{font-size:26px;line-height:1.05}
+ .next-info{margin-top:12px!important}
+ .next-details{line-height:1.5}
+ .next-info>.match-verification{margin-top:12px}
+ .next-info .match-actions{margin-top:12px}
+}
+@media(max-width:380px){header .brand{font-size:24px;gap:8px}}
+@media(max-width:700px){.next-season{display:none}#next-match .eyebrow{font-size:12px;letter-spacing:.12em}}
+@media(max-width:380px){.match-strip .next-info .match-actions .calendar-disclosure,.match-strip .next-info .match-actions .calendar-disclosure>summary{width:100%}}
+/* Footer and phone polish. */
+body>footer{text-align:center}
+footer .footer-brand{justify-content:center;width:100%}
+footer>p{margin-bottom:32px}
+.footer-links{justify-items:center;text-align:center}
+.footer-links .footer-mark-row{justify-content:center}
+.footer-bottom{display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center}
+.footer-bottom span:last-child{text-align:center}
+@media(max-width:700px){.footer-bottom{align-items:center;text-align:center}.footer-bottom span:last-child{text-align:center}}
+h1,h2,h3,h4,.next-opponent{text-wrap:balance}
+.match-date-chip,.match-date,.next-details,.match-final-state,.score-number,.match-scoreboard,.match-result-line span:nth-child(2),.result-counts{font-variant-numeric:tabular-nums}
+header{padding-inline:max(4.5%,env(safe-area-inset-left)) max(4.5%,env(safe-area-inset-right))}
+header.is-compact{padding-inline:max(3.5%,env(safe-area-inset-left)) max(3.5%,env(safe-area-inset-right))}
+#back-to-top{right:calc(16px + env(safe-area-inset-right));background:#092a20;color:#f5f3eb;transition:transform 180ms ease-out,visibility 0s;opacity:0}
+#back-to-top.is-visible{opacity:1;background:#092a20;color:#f5f3eb}
